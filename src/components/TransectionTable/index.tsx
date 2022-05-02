@@ -1,14 +1,14 @@
 import { useEffect } from "react"
+import { api } from "../../services/api"
 import { Container } from "./style"
 
 
 export function TransectionTable() {
   useEffect(()=> {
-    fetch('http://localhost:3000/api/transections')
-      .then(response => response.json())
-      .then(data => console.log(data)) 
+    api.get('/transections')
+      .then(response => console.log(response.data)) 
   }, [])
-  
+
   return(
     <Container>
       <table>
