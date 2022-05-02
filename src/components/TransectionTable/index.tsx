@@ -6,8 +6,9 @@ export function TransectionTable() {
   useEffect(()=> {
     fetch('http://localhost:3000/api/transections')
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => console.log(data)) 
   }, [])
+  
   return(
     <Container>
       <table>
