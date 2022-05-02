@@ -4,6 +4,8 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header"
 import { useState } from "react";
 
+Modal.setAppElement('#root')
+
 export function App() {
   const [isNewTransectionModalOpen, setIsNewTransectionModalOpen] = useState(false)
 
