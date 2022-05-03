@@ -1,5 +1,4 @@
 import Modal from "react-modal"
-import { on } from "stream"
 import closeImg from "../../assets/close.svg"
 import { Container } from "./style"
 
