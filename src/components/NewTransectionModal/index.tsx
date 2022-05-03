@@ -1,6 +1,8 @@
 import Modal from "react-modal"
 import closeImg from "../../assets/close.svg"
-import { Container } from "./style"
+import incomeImg from "../../assets/income.svg"
+import outcomeImg from "../../assets/outcome.svg"
+import { Container, TransectionTypeContainer } from "./style"
 
 interface NewTransectionProps {
   isOpen: boolean
@@ -26,11 +28,25 @@ export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionPr
           alt="Fechar modal"
         />
       </button>
+
       <Container>
         <h2>Cadastrar transações</h2>
 
         <input placeholder='Título'/>
         <input type="number" placeholder='Valor'/>
+
+        <TransectionTypeContainer>
+          <button type="button">
+            <img src={incomeImg} alt="Entrada" />
+            <span>Entrada</span>
+          </button>
+
+          <button type="button">
+            <img src={outcomeImg} alt="Saída" />
+            <span>Saída</span>
+          </button>
+        </TransectionTypeContainer>
+
         <input placeholder='Categoria' />
 
         <button type="submit">Cadastrar</button>
