@@ -6,7 +6,7 @@ import incomeImg from "../../assets/income.svg"
 import outcomeImg from "../../assets/outcome.svg"
 import { api } from "../../services/api"
 
-import { Container, TransectionTypeContainer, RadioBox } from "./style"
+import { Container, TransactionTypeContainer, RadioBox } from "./style"
 
 interface NewTransectionProps {
   isOpen: boolean
@@ -14,7 +14,7 @@ interface NewTransectionProps {
 
 }
 
-export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionProps) {
+export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionProps) {
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [value, setValue] = useState(0)
@@ -30,7 +30,7 @@ export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionPr
       type
     };
 
-    api.post('/transections', data)
+    api.post('/transactions', data)
   }
 
 
@@ -68,7 +68,7 @@ export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionPr
           onChange={ event => setValue(event.target.valueAsNumber) }
         />
 
-        <TransectionTypeContainer>
+        <TransactionTypeContainer>
           <RadioBox 
             type="button" 
             onClick={() => setType('deposit')}
@@ -88,7 +88,7 @@ export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionPr
             <img src={outcomeImg} alt="Saída" />
             <span>Saída</span>
           </RadioBox>
-        </TransectionTypeContainer>
+        </TransactionTypeContainer>
 
         <input
           placeholder='Categoria'

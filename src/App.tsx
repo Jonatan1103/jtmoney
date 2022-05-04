@@ -4,14 +4,14 @@ import { GlobalStyle } from "./styles/global"
 
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header"
-import { NewTransectionModal } from "./components/NewTransectionModal"
+import { NewTransactionModal } from "./components/NewTransactionModal"
 
 import { useState } from "react";
 
 Modal.setAppElement('#root')
 
 export function App() {
-  const [isNewTransectionModalOpen, setIsNewTransectionModalOpen] = useState(false)
+  const [isNewTransactionModalOpen, setIsNewTransectionModalOpen] = useState(false)
 
   function handleOpenNewTransactionModal() {
     setIsNewTransectionModalOpen(true)
@@ -26,8 +26,8 @@ export function App() {
       <Header onOpenNewTransectionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
 
-      <NewTransectionModal 
-        isOpen={isNewTransectionModalOpen} 
+      <NewTransactionModal 
+        isOpen={isNewTransactionModalOpen} 
         onRequestClose={handleCloseNewTransactionModal}
       />
       

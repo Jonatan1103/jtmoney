@@ -57,7 +57,7 @@ const colors = {
   red: '#e52e4d'
 }
 
-export const TransectionTypeContainer = styled.div`
+export const TransactionTypeContainer = styled.div`
   margin: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
