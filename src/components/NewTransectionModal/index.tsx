@@ -1,8 +1,11 @@
+import { useState } from "react"
 import Modal from "react-modal"
+
 import closeImg from "../../assets/close.svg"
 import incomeImg from "../../assets/income.svg"
 import outcomeImg from "../../assets/outcome.svg"
-import { Container, TransectionTypeContainer } from "./style"
+
+import { Container, TransectionTypeContainer, RadioBox } from "./style"
 
 interface NewTransectionProps {
   isOpen: boolean
@@ -11,6 +14,8 @@ interface NewTransectionProps {
 }
 
 export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionProps) {
+  const [type, setType] = useState('deposit')
+
   return (
     <Modal 
       isOpen={isOpen}
@@ -36,15 +41,23 @@ export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionPr
         <input type="number" placeholder='Valor'/>
 
         <TransectionTypeContainer>
-          <button type="button">
+          <RadioBox 
+            type="button" 
+            onClick={() => setType('deposit')}
+            isActive={type === 'deposit'}
+          >
             <img src={incomeImg} alt="Entrada" />
             <span>Entrada</span>
-          </button>
+          </RadioBox>
 
-          <button type="button">
+          <RadioBox 
+            type="button" 
+            onClick={() => setType('withdraw')}
+            isActive={type === 'withdraw'}
+          >
             <img src={outcomeImg} alt="Saída" />
             <span>Saída</span>
-          </button>
+          </RadioBox>
         </TransectionTypeContainer>
 
         <input placeholder='Categoria' />

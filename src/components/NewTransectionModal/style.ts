@@ -46,27 +46,32 @@ export const Container = styled.form`
     }
 `
 
+interface RadiosBoxProps {
+  isActive: boolean
+}
+
 export const TransectionTypeContainer = styled.div`
   margin: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+`
 
-  button {
-    height: 4rem;
-    border: 1px solid #d7d7d7;
-    border-radius: 0.25rem;
-    background-color: transparent;
+export const RadioBox = styled.button<RadiosBoxProps>`
+  height: 4rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 0.25rem;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: ${(props) => props.isActive ? "#ccc" : 'transparent'};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
     
-    transition: border-color 0.2s;
+  transition: border-color 0.2s;
 
-    &:hover {
-      border-color: #aaa;
-    }
+  &:hover {
+    border-color: #aaa;
   }
 
   img {
