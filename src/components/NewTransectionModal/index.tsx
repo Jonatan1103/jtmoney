@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 import Modal from "react-modal"
 
 import closeImg from "../../assets/close.svg"
@@ -14,7 +14,16 @@ interface NewTransectionProps {
 }
 
 export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionProps) {
+  const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
+  const [value, setValue] = useState(0)
   const [type, setType] = useState('deposit')
+
+  function handleCreatNewTransection(event: FormEvent) {
+    event.preventDefault()
+
+    console.log(title, value, category, type);
+  }
 
   return (
     <Modal 
@@ -34,11 +43,21 @@ export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionPr
         />
       </button>
 
-      <Container>
+      <Container onSubmit={handleCreatNewTransection}>
         <h2>Cadastrar transações</h2>
 
-        <input placeholder='Título'/>
-        <input type="number" placeholder='Valor'/>
+        <input 
+          placeholder='Título'
+          value={title}
+          onChange={ event => setTitle(event.target.value) }
+        />
+
+        <input 
+          type="number" 
+          placeholder='Valor'
+          value={value}
+          onChange={ event => setValue(event.target.valueAsNumber) }
+        />
 
         <TransectionTypeContainer>
           <RadioBox 
@@ -62,7 +81,11 @@ export function NewTransectionModal({ isOpen, onRequestClose }: NewTransectionPr
           </RadioBox>
         </TransectionTypeContainer>
 
-        <input placeholder='Categoria' />
+        <input
+          placeholder='Categoria'
+          value={category}
+          onChange={ event => setCategory(event.target.value) }
+        />
 
         <button type="submit">Cadastrar</button>
       </Container>
