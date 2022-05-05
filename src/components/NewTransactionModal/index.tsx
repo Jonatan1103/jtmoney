@@ -15,6 +15,7 @@ interface NewTransectionProps {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionProps) {
+  
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [value, setValue] = useState(0)

@@ -3,22 +3,23 @@ import { api } from "../../services/api"
 import { Container } from "./style"
 
 interface Transaction {
-  id: number
-  title: string
-  amount: number
-  type: string
-  category: string
-  createdAt: string
+  id: number;
+  title: string;
+  amount: number;
+  type: string;
+  category: string;
+  createdAt: string;
 }
 
-export function TransectionTable() {
+export function TransactionTable() {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
   useEffect(()=> {
-    api.get('/transactions')
-      .then(response => setTransactions(response.data)) 
+    api.get('transactions')
+      .then(response => setTransactions(response.data['transactions'])) 
   }, [])
 
+  console.log(transactions)
   return(
     <Container>
       <table>
