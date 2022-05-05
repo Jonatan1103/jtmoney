@@ -6,7 +6,6 @@ import incomeImg from "../../assets/income.svg"
 import outcomeImg from "../../assets/outcome.svg"
 
 import { TransactionsContext } from "../../TransactionsContext"
-import { api } from "../../services/api"
 
 import { Container, TransactionTypeContainer, RadioBox } from "./style"
 
@@ -19,6 +18,8 @@ interface NewTransectionProps {
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionProps) {
 
   const transactions = useContext(TransactionsContext)
+  console.log(transactions);
+  
   
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
