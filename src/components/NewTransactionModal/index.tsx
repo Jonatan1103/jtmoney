@@ -17,18 +17,22 @@ interface NewTransectionProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionProps) {
 
-  const transactions = useContext(TransactionsContext)
-  console.log(transactions);
-  
+  const { createdTransaction } = useContext(TransactionsContext)
   
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
-  const [value, setValue] = useState(0)
+  const [amount, setAmount] = useState(0)
   const [type, setType] = useState('deposit')
 
   function handleCreatNewTransection(event: FormEvent) {
     event.preventDefault()
 
+    createdTransaction({
+      title,
+      amount,
+      category,
+      type
+    })
   }
 
 
@@ -62,8 +66,8 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionPr
         <input 
           type="number" 
           placeholder='Valor'
-          value={value}
-          onChange={ event => setValue(event.target.valueAsNumber) }
+          value={amount}
+          onChange={ event => setAmount(event.target.valueAsNumber) }
         />
 
         <TransactionTypeContainer>
