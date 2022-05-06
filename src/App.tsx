@@ -12,19 +12,19 @@ import react from "react";
 Modal.setAppElement('#root')
 
 export function App() {
-  const [isNewTransactionModalOpen, setIsNewTransectionModalOpen] = react.useState(false)
+  const [isNewTransactionModalOpen, setIsNewtransactionModalOpen] = react.useState(false)
 
   function handleOpenNewTransactionModal() {
-    setIsNewTransectionModalOpen(true)
+    setIsNewtransactionModalOpen(true)
   }
 
   function handleCloseNewTransactionModal() {
-    setIsNewTransectionModalOpen(false)
+    setIsNewtransactionModalOpen(false)
   }
   
   return (
     <TransactionsProvider>
-      <Header onOpenNewTransectionModal={handleOpenNewTransactionModal}/>
+      <Header onOpenNewtransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
 
       <NewTransactionModal 

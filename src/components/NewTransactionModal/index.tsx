@@ -9,13 +9,13 @@ import { TransactionsContext } from "../../TransactionsContext"
 
 import { Container, TransactionTypeContainer, RadioBox } from "./style"
 
-interface NewTransectionProps {
+interface NewtransactionProps {
   isOpen: boolean
   onRequestClose: () => void
 
 }
 
-export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionProps) {
+export function NewTransactionModal({ isOpen, onRequestClose }: NewtransactionProps) {
 
   const { createdTransaction } = useContext(TransactionsContext)
   
@@ -24,15 +24,21 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionPr
   const [amount, setAmount] = useState(0)
   const [type, setType] = useState('deposit')
 
-  function handleCreatNewTransection(event: FormEvent) {
+  async function handleCreatNewtransaction(event: FormEvent) {
     event.preventDefault()
 
-    createdTransaction({
+    await createdTransaction({
       title,
       amount,
       category,
-      type
+      type,
     })
+
+    setTitle('')
+    setAmount(0)
+    setCategory('')
+    setType('deposit')
+    onRequestClose()
   }
 
 
@@ -54,7 +60,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransectionPr
         />
       </button>
 
-      <Container onSubmit={handleCreatNewTransection}>
+      <Container onSubmit={handleCreatNewtransaction}>
         <h2>Cadastrar transações</h2>
 
         <input 
