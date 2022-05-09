@@ -13,6 +13,10 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  h2 {
+    color: #fff;
+  }
+
   button {
     font-size:1rem;
     color:#fff;

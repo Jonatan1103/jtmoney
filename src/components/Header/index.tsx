@@ -1,4 +1,3 @@
-import logo from '../../assets/logo.svg'
 import { Container, Content } from './styles'
 
 interface HeaderProps {
@@ -10,7 +9,7 @@ export function Header({ onOpenNewtransactionModal } : HeaderProps) {
   return(
     <Container>
       <Content>
-        <img src={logo} alt="Jt money" />
+        <h2>JT Finanças</h2>
         <button type="button" onClick={onOpenNewtransactionModal}>
           Nova transação
         </button>
